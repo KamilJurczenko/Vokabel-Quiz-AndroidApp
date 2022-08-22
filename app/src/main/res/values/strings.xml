@@ -1,0 +1,35 @@
+<resources>
+    <string name="app_name">VocabGo</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="camera">Camera</string>
+    <string name="file">File</string>
+    <string name="new_scan_from">New Scan from</string>
+    <string name="first_vocab">First Vocab</string>
+    <string name="second_vocab">Second Vocab</string>
+    <string name="english_word">English Word</string>
+    <string name="german_word">German Word</string>
+    <string name="submit">Submit</string>
+    <string name="list_settings">List Settings</string>
+    <string name="next">Next</string>
+    <string name="i_don_t_know"><u>I don\'t know</u></string>
+    <string name="enter_here">Enter Here</string>
+    <string name="result">Total Score</string>
+    <string name="are_you_sure_to_delete_this_list">Are you sure to delete this List?</string>
+    <string name="german">German</string>
+    <string name="english">English</string>
+    <string name="french">French</string>
+    <string name="chooseLearningLang">Learning Language</string>
+    <string name="chooseYourLang">Your Language</string>
+    <string name="your_lists">Your Lists</string>
+    <string name="create_new_list">Create new List</string>
+    <string name="new_vocabulary">New Vocabulary</string>
+    <string name="source">Source</string>
+    <string name="enter_listname">Enter Listname</string>
+    <string name="add_new_scan">Add new Scan</string>
+    <string name="newVocabListname">New Vocablist Name</string>
+    <string name="resultBad">Try again!</string>
+    <string name="resultGood">Good job!</string>
+    <string name="your_score_is">Your Score is:</string>
+    <string name="new_List">New List</string>
+</resources>

@@ -1,0 +1,2 @@
+CREATE VIRTUAL TABLE fts_table USING fts5 (content='simple_translation', trans_list);
+INSERT INTO fts_table(fts_table) VALUES('rebuild');
