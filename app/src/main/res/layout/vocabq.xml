@@ -10,6 +10,7 @@
         android:layout_height="188dp"
         android:background="@drawable/item_shape"
         android:orientation="vertical"
+        android:paddingBottom="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -18,7 +19,6 @@
             android:id="@+id/queryVocabText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
             android:fontFamily="@font/alfa_slab_one"
             android:text="Vocabulary"
             android:textAlignment="center"

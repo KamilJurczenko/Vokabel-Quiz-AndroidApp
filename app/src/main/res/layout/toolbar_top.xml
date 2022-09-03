@@ -39,7 +39,7 @@
             android:layout_weight="1"
             android:fontFamily="@font/alfa_slab_one"
             android:gravity="center"
-            android:text="Test2"
+            android:text="Title"
             android:textSize="16sp" />
 
         <RelativeLayout
@@ -64,17 +64,20 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:gravity="center_horizontal"
             android:visibility="gone"
-            tools:visibility="gone"
-            android:gravity="center_horizontal">
+            tools:visibility="visible">
 
             <ImageButton
                 android:id="@+id/vocabListSettingsBtn"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
+                android:layout_centerInParent="true"
                 android:background="@drawable/ripple_effect_button_transparent"
+                android:padding="12dp"
+                android:scaleType="fitCenter"
                 android:visibility="visible"
-                app:srcCompat="@android:drawable/ic_menu_manage"
+                app:srcCompat="@drawable/settingsui"
                 tools:visibility="visible" />
         </RelativeLayout>
 

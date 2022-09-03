@@ -14,6 +14,7 @@
         <entry key="..\:/Users/Kamil/AndroidStudioProjects/VokabelQuizApp/app/src/main/res/drawable/ripple_effect_button_transparent.xml" value="0.4035" />
         <entry key="..\:/Users/Kamil/AndroidStudioProjects/VokabelQuizApp/app/src/main/res/drawable/ripple_effect_item.xml" value="0.4035" />
         <entry key="..\:/Users/Kamil/AndroidStudioProjects/VokabelQuizApp/app/src/main/res/drawable/ripple_effect_new_item.xml" value="0.4035" />
+        <entry key="..\:/Users/Kamil/AndroidStudioProjects/VokabelQuizApp/app/src/main/res/drawable/round_border.xml" value="0.4035" />
         <entry key="..\:/Users/Kamil/AndroidStudioProjects/VokabelQuizApp/app/src/main/res/drawable/round_mask.xml" value="0.4035" />
         <entry key="..\:/Users/Kamil/AndroidStudioProjects/VokabelQuizApp/app/src/main/res/drawable/rounded_layout_shape.xml" value="0.4035" />
         <entry key="..\:/Users/Kamil/AndroidStudioProjects/VokabelQuizApp/app/src/main/res/drawable/rounded_layout_shape_bottom.xml" value="0.4035" />
@@ -47,7 +48,7 @@
         <entry key="..\:/Users/Kamil/AndroidStudioProjects/VokabelQuizApp/app/src/main/res/layout/fragment_o_c_r__result.xml" value="0.4041666666666667" />
         <entry key="..\:/Users/Kamil/AndroidStudioProjects/VokabelQuizApp/app/src/main/res/layout/list_delete_confirm_popup.xml" value="0.264" />
         <entry key="..\:/Users/Kamil/AndroidStudioProjects/VokabelQuizApp/app/src/main/res/layout/new_vocab_item.xml" value="0.5531004989308624" />
-        <entry key="..\:/Users/Kamil/AndroidStudioProjects/VokabelQuizApp/app/src/main/res/layout/new_vocab_item_edit.xml" value="0.264" />
+        <entry key="..\:/Users/Kamil/AndroidStudioProjects/VokabelQuizApp/app/src/main/res/layout/new_vocab_item_edit.xml" value="0.4" />
         <entry key="..\:/Users/Kamil/AndroidStudioProjects/VokabelQuizApp/app/src/main/res/layout/new_vocab_popup.xml" value="0.3317657118426678" />
         <entry key="..\:/Users/Kamil/AndroidStudioProjects/VokabelQuizApp/app/src/main/res/layout/popup.xml" value="0.3317657118426678" />
         <entry key="..\:/Users/Kamil/AndroidStudioProjects/VokabelQuizApp/app/src/main/res/layout/quiz_one_result_popup.xml" value="0.3317657118426678" />
@@ -58,6 +59,7 @@
         <entry key="..\:/Users/Kamil/AndroidStudioProjects/VokabelQuizApp/app/src/main/res/layout/toolbar_top.xml" value="0.3317657118426678" />
         <entry key="..\:/Users/Kamil/AndroidStudioProjects/VokabelQuizApp/app/src/main/res/layout/toolbar_top_round.xml" value="0.3317657118426678" />
         <entry key="..\:/Users/Kamil/AndroidStudioProjects/VokabelQuizApp/app/src/main/res/layout/toolbar_top_round_bot.xml" value="0.3317657118426678" />
+        <entry key="..\:/Users/Kamil/AndroidStudioProjects/VokabelQuizApp/app/src/main/res/layout/vocab_item.xml" value="0.3317657118426678" />
         <entry key="..\:/Users/Kamil/AndroidStudioProjects/VokabelQuizApp/app/src/main/res/layout/vocablist_item.xml" value="0.536" />
         <entry key="..\:/Users/Kamil/AndroidStudioProjects/VokabelQuizApp/app/src/main/res/layout/vocablist_new_item.xml" value="0.8800000000000001" />
         <entry key="..\:/Users/Kamil/AndroidStudioProjects/VokabelQuizApp/app/src/main/res/layout/vocabq.xml" value="0.3317657118426678" />
