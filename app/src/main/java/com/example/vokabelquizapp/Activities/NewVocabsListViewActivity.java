@@ -34,6 +34,7 @@ import com.example.vokabelquizapp.classes.VocabData.VocabTuple;
 public class NewVocabsListViewActivity extends AppCompatActivity {
 
     private VocabAdapter adapter;
+    private ListView newVocabsListView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,7 +45,7 @@ public class NewVocabsListViewActivity extends AppCompatActivity {
         Button newScanButton = findViewById(R.id.addScanBtn);
         ImageButton newVocabButton = findViewById(R.id.newVocabTupleBtn);
         TextView listNameText = findViewById(R.id.toolbarText);
-        ListView newVocabsListView = findViewById(R.id.newVocabList);
+        newVocabsListView = findViewById(R.id.newVocabList);
 
         listNameText.setText(AppData.currentVocabList.getName());
 
@@ -74,8 +75,7 @@ public class NewVocabsListViewActivity extends AppCompatActivity {
         }
 
         adapter = new VocabAdapter(NewVocabsListViewActivity.this, AppData.currentVocabList.getVocabList());
-        newVocabsListView.setAdapter(adapter);
-        adapter.notifyDataSetChanged();
+        updateDataSet();
 
         newScanButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -108,22 +108,24 @@ public class NewVocabsListViewActivity extends AppCompatActivity {
         });
     }
 
+    public void updateDataSet(){
+        newVocabsListView.setAdapter(adapter);
+        adapter.notifyDataSetChanged();
+    }
+
     private void createNewVocabTupleDialog(){
         final AlertDialog dialogBuilder = new AlertDialog.Builder(this).create();
         LayoutInflater inflater = this.getLayoutInflater();
-        View dialogView = inflater.inflate(R.layout.new_vocab_popup, null);
+        View dialogView = inflater.inflate(R.layout.new_vocab_item_edit, null);
 
         dialogBuilder.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
 
-        TextView title = dialogView.findViewById(R.id.toolbarText);
-        ImageButton exitBtn = dialogView.findViewById(R.id.closeBtn);
-        EditText firstVocabText = dialogView.findViewById(R.id.newFirstVocab);
-        EditText secondVocabText = dialogView.findViewById(R.id.newSecondVocab);
-        Button submitButton = dialogView.findViewById(R.id.newVocabSubmit);
-        Button cancelButton = dialogView.findViewById(R.id.newVocabCancel);
-
-        exitBtn.setVisibility(View.VISIBLE);
-        title.setText(R.string.new_vocabulary);
+        EditText firstVocabText = dialogView.findViewById(R.id.firstVocabEdit);
+        EditText secondVocabText = dialogView.findViewById(R.id.secondVocabEdit);
+        Button submitButton = dialogView.findViewById(R.id.confirmVocabBtn);
+        Button cancelButton = dialogView.findViewById(R.id.cancelVocabBtn);
+        Button deleteButton = dialogView.findViewById(R.id.deleteVocabBtn);
+        deleteButton.setVisibility(View.GONE);
 
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -145,12 +147,6 @@ public class NewVocabsListViewActivity extends AppCompatActivity {
                 VocabTuple newVocab = new VocabTuple(firstVocabString,secondVocabString,false);
                 AppData.currentVocabList.addTupleToVocabList(newVocab);
                 adapter.notifyDataSetChanged();
-                dialogBuilder.dismiss();
-            }
-        });
-        exitBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
                 dialogBuilder.dismiss();
             }
         });

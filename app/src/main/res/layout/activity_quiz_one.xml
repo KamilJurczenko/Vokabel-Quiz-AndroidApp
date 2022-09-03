@@ -13,74 +13,82 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <include
-        android:id="@+id/vocabQLayout1"
-        layout="@layout/vocabq"
-        android:layout_width="wrap_content"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="84dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/include3" />
-
-    <include
-        android:id="@+id/vocabQLayout2"
-        layout="@layout/vocabq"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="84dp"
-        android:visibility="invisible"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/include3"
-        tools:visibility="invisible" />
-
-    <ImageView
-        android:id="@+id/feedbackImage"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="192dp"
-        android:adjustViewBounds="true"
-        android:background="@drawable/roundedbutton_red"
-        android:visibility="invisible"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/vocabQLayout1"
-        app:srcCompat="@drawable/cross"
-        tools:visibility="visible" />
-
-    <LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="410dp"
-        android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="44dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/vocabQLayout1"
-        app:layout_constraintVertical_bias="0.088">
+        app:layout_constraintTop_toBottomOf="@+id/include3"
+        android:layout_alignParentBottom = "true"
+        >
 
-        <Button
-            android:id="@+id/nextVocabBtn"
-            android:layout_width="217dp"
-            android:layout_height="63dp"
-            android:fontFamily="@font/alfa_slab_one"
-            android:text="@string/next"
-            android:textSize="20sp" />
-
-        <TextView
-            android:id="@+id/skipVocabQuery"
+        <include
+            android:id="@+id/vocabQLayout1"
+            layout="@layout/vocabq"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:fontFamily="@font/alata"
-            android:text="@string/i_don_t_know"
-            android:textSize="18sp" />
+            android:layout_marginBottom="30dp"
+            app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
-    </LinearLayout>
+        <include
+            android:id="@+id/vocabQLayout2"
+            layout="@layout/vocabq"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="30dp"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:visibility="invisible" />
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <Button
+                android:id="@+id/nextVocabBtn"
+                android:layout_width="217dp"
+                android:layout_height="63dp"
+                android:fontFamily="@font/alfa_slab_one"
+                android:text="@string/next"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/skipVocabQuery"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/alata"
+                android:text="@string/i_don_t_know"
+                android:textSize="18sp" />
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/wrongVocabImage"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="-25dp"
+            android:adjustViewBounds="true"
+            android:background="@drawable/roundedbutton_red"
+            android:visibility="invisible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/vocabQLayout1"
+            app:srcCompat="@drawable/cross"
+            tools:visibility="visible" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

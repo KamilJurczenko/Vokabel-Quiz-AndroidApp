@@ -23,6 +23,7 @@
         <activity
             android:name=".Activities.quizOneActivity"
             android:exported="false"
+            android:windowSoftInputMode="stateVisible|adjustResize"
             android:screenOrientation="portrait"/>
         <activity
             android:name=".Activities.NewVocabsListViewActivity"

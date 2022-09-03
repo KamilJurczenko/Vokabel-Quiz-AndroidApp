@@ -129,7 +129,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        // TODO Animate
         dialogBuilder.setView(dialogView);
         dialogBuilder.show();
     }

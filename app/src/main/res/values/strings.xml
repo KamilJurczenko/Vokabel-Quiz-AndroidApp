@@ -32,4 +32,7 @@
     <string name="resultGood">Good job!</string>
     <string name="your_score_is">Your Score is:</string>
     <string name="new_List">New List</string>
+    <string name="delete">Delete</string>
+    <string name="cancel">Cancel</string>
+    <string name="confirm">Confirm</string>
 </resources>

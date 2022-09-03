@@ -41,7 +41,6 @@ public class WordFinder {
         ...
         */
         // TODO Use Algorithm to search for similar Words (spellfix)
-        // TODO Optimize
 
         DatabaseManager database = AppData.databaseManager;
         database.open();

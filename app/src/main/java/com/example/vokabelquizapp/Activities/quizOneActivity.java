@@ -11,10 +11,12 @@ import android.os.Handler;
 import android.speech.tts.TextToSpeech;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -22,7 +24,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.vokabelquizapp.AppData;
-import com.example.vokabelquizapp.Fragments.NewListDialogFragment;
 import com.example.vokabelquizapp.Fragments.ReturnToMainDialogFragment;
 import com.example.vokabelquizapp.R;
 import com.example.vokabelquizapp.classes.VocabData.VocabTuple;
@@ -38,6 +39,7 @@ public class quizOneActivity extends AppCompatActivity {
     private Button confirmInputVocab;
     private ImageView feedbackImg;
     private TextView correctVocab;
+    private TextView skipVocabQuery;
 
     private ArrayList<VocabTuple> vocabularies;
     private VocabTuple currentVocabQueryTuple;
@@ -59,10 +61,10 @@ public class quizOneActivity extends AppCompatActivity {
 
         firstView = findViewById(R.id.vocabQLayout1);
         secondView = findViewById(R.id.vocabQLayout2);
-        feedbackImg = findViewById(R.id.feedbackImage);
+        feedbackImg = findViewById(R.id.wrongVocabImage);
 
         confirmInputVocab = findViewById(R.id.nextVocabBtn);
-        TextView skipVocabQuery = findViewById(R.id.skipVocabQuery);
+        skipVocabQuery = findViewById(R.id.skipVocabQuery);
         TextView title = findViewById(R.id.toolbarText);
         ImageButton exitBtn = findViewById(R.id.closeBtn);
 
@@ -91,7 +93,11 @@ public class quizOneActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if(animationStopped)
-                    nextVocabQuery();
+                {
+                    showCorrectVocab();
+                    feedbackDelay();
+                    //nextVocabQuery();
+                }
             }
         });
 
@@ -120,6 +126,18 @@ public class quizOneActivity extends AppCompatActivity {
         inputVocab.setHint("Enter " + AppData.learningLanguageString  + " Word");
         inputVocab.setTextColor(ContextCompat.getColor(quizOneActivity.this, R.color.white));
         inputVocab.setText("");
+        inputVocab.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                boolean handled = false;
+                if (actionId == EditorInfo.IME_ACTION_DONE) {
+                    if(animationStopped)
+                        checkInputVocab();
+                    handled = true;
+                }
+                return handled;
+            }
+        });
         correctVocab.setText("");
         textToSpeechBtn = currentView.findViewById(R.id.textToSpeechBtn);
         textToSpeechBtn.setOnClickListener(new View.OnClickListener() {
@@ -143,7 +161,6 @@ public class quizOneActivity extends AppCompatActivity {
     private void checkInputVocab(){
         String inputString = inputVocab.getText().toString();
         feedbackImg.setVisibility(View.VISIBLE);
-        Animation scaleUp = AnimationUtils.loadAnimation(this, R.anim.scale_up);
         if(inputString.equals(currentVocabQueryTuple.getLearningVocab())){
             // Correct Vocable Input
             feedbackImg.setBackgroundResource(R.drawable.roundedbutton_green);
@@ -155,17 +172,31 @@ public class quizOneActivity extends AppCompatActivity {
             feedbackImg.setBackgroundResource(R.drawable.roundedbutton_red);
             feedbackImg.setImageResource(R.drawable.cross);
             inputVocab.setTextColor(ContextCompat.getColor(quizOneActivity.this, R.color.red));
-            correctVocab.setText(currentVocabQueryTuple.getLearningVocab());
-            correctVocab.startAnimation(scaleUp);
+            showCorrectVocab();
         }
+        Animation scaleUp = AnimationUtils.loadAnimation(this, R.anim.scale_up);
         feedbackImg.startAnimation(scaleUp);
+        feedbackDelay();
+    }
+
+    private void showCorrectVocab(){
+        Animation scaleUp = AnimationUtils.loadAnimation(this, R.anim.scale_up);
+        correctVocab.setText(currentVocabQueryTuple.getLearningVocab());
+        correctVocab.startAnimation(scaleUp);
+    }
+
+    private void feedbackDelay(){
+        inputVocab.setEnabled(false);
+        confirmInputVocab.setEnabled(false);
+        skipVocabQuery.setEnabled(false);
         Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
             public void run() {
                 nextVocabQuery();
+                inputVocab.setEnabled(true);
+                skipVocabQuery.setEnabled(true);
             }
-        }, 1250);
-
+        }, 1500);
     }
 
     private void nextVocabQuery(){
@@ -223,7 +254,7 @@ public class quizOneActivity extends AppCompatActivity {
 
         float div = 0;
         if(correctVocables > 0)
-            div = maxVocables / correctVocables;
+            div = correctVocables / maxVocables;
 
         if(div > 0.7)
             resultText.setText(R.string.resultGood);
@@ -238,10 +269,11 @@ public class quizOneActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 dialogBuilder.dismiss();
-                startActivity(new Intent(quizOneActivity.this, MainActivity.class));
+                Intent i = new Intent(quizOneActivity.this, MainActivity.class);
+                i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(i);
             }
         });
-        // TODO Spring animation effect
 
         repeatVocabQueryBtn.setOnClickListener(new View.OnClickListener() {
             @Override

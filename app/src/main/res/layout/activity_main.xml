@@ -22,7 +22,7 @@
         <ListView
             android:id="@+id/vocabList"
             android:layout_width="match_parent"
-            android:layout_height="563dp"
+            android:layout_height="671dp"
             android:layout_marginTop="30dp"
             android:divider="#00000000"
             android:dividerHeight="20dp" />

@@ -6,21 +6,24 @@
     android:layout_height="match_parent">
 
     <LinearLayout
+        android:id="@+id/vocabItemLayout"
         android:layout_width="315dp"
         android:layout_height="wrap_content"
+        android:background="@drawable/ripple_effect_item"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:background="@drawable/item_shape">
+        android:clickable="true"
+        android:focusable="true">
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/firstVocabName"
+            <TextView
+                android:id="@+id/firstVocabEdit"
                 android:layout_width="220dp"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/alata"
@@ -38,8 +41,8 @@
                 app:srcCompat="@android:drawable/ic_lock_silent_mode_off" />
         </LinearLayout>
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/secondVocabName"
+        <TextView
+            android:id="@+id/secondVocabEdit"
             android:layout_width="220dp"
             android:layout_height="wrap_content"
             android:fontFamily="@font/alata"
