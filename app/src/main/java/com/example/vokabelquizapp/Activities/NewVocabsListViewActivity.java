@@ -35,6 +35,7 @@ public class NewVocabsListViewActivity extends AppCompatActivity {
 
     private VocabAdapter adapter;
     private ListView newVocabsListView;
+    private TextView listNameText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,7 +45,7 @@ public class NewVocabsListViewActivity extends AppCompatActivity {
         Button submitButton = findViewById(R.id.submitVocabBtn);
         Button newScanButton = findViewById(R.id.addScanBtn);
         ImageButton newVocabButton = findViewById(R.id.newVocabTupleBtn);
-        TextView listNameText = findViewById(R.id.toolbarText);
+        listNameText = findViewById(R.id.toolbarText);
         newVocabsListView = findViewById(R.id.newVocabList);
 
         listNameText.setText(AppData.currentVocabList.getName());
@@ -106,6 +107,12 @@ public class NewVocabsListViewActivity extends AppCompatActivity {
                 new NewListDialogFragment().show(fm, "fragment_alert");
             }
         });
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        listNameText.setText(AppData.currentVocabList.getName());
     }
 
     public void updateDataSet(){

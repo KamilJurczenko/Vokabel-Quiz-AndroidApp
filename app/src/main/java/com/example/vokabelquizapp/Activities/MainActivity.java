@@ -71,9 +71,12 @@ public class MainActivity extends AppCompatActivity {
         renderVocabList();
     }
     private void renderVocabList(){
-        VocabListAdapter adapter = new VocabListAdapter(this, AppData.loadedLanguageVocabs);
-        vocabListView.setAdapter(adapter);
-        adapter.notifyDataSetChanged();
+        if(AppData.loadedLanguageVocabs != null)
+        {
+            VocabListAdapter adapter = new VocabListAdapter(this, AppData.loadedLanguageVocabs);
+            vocabListView.setAdapter(adapter);
+            adapter.notifyDataSetChanged();
+        }
     }
 
     private void showLanguageSelectorPopup(int main){

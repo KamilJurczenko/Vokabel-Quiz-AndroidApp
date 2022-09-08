@@ -85,7 +85,7 @@ public class ListSettingsActivity extends AppCompatActivity {
                         dialogBuilder.dismiss();
                         Toast.makeText(context, "List renamed successfully!", Toast.LENGTH_SHORT).show();
                         AppData.currentVocabList.setName(vocabListName.getText().toString());
-                        SharedPrefVocabList sharedPrefVocabList = new SharedPrefVocabList(context,"VocabList");
+                        SharedPrefVocabList sharedPrefVocabList = new SharedPrefVocabList(context,AppData.lanListPrefTag);
                         sharedPrefVocabList.saveVocabList(AppData.loadedLanguageVocabs);
                     }
                 });
