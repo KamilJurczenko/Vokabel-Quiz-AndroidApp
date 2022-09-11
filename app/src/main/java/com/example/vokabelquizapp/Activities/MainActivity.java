@@ -34,6 +34,8 @@ public class MainActivity extends AppCompatActivity {
 
     private int mainLanguageTmp;
 
+    private boolean firstAppInit = false;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,6 +51,7 @@ public class MainActivity extends AppCompatActivity {
 
         // App started for first time!
         if(AppData.learningLanguage == AppData.NOT_DEFINED || AppData.mainLanguage == AppData.NOT_DEFINED){
+            firstAppInit = true;
             languageSelectLayout.setVisibility(View.INVISIBLE);
             showLanguageSelectorPopup(0);
         }
@@ -88,7 +91,13 @@ public class MainActivity extends AppCompatActivity {
         LinearLayout englishLayout = dialogView.findViewById(R.id.englishLayout);
         LinearLayout germanLayout = dialogView.findViewById(R.id.germanLayout);
         LinearLayout frenchLayout = dialogView.findViewById(R.id.frenchLayout);
-        new ExitButtonDialog(dialogView, dialogBuilder);
+        if(!firstAppInit)
+            new ExitButtonDialog(dialogView, dialogBuilder);
+        else
+        {
+            dialogBuilder.setCancelable(false);
+            dialogBuilder.setCanceledOnTouchOutside(false);
+        }
 
         TextView chooseText = dialogView.findViewById(R.id.toolbarText);
 
