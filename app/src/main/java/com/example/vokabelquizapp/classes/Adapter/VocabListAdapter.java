@@ -94,7 +94,6 @@ public class VocabListAdapter extends BaseAdapter {
                 public void onClick(View v) {
                     Intent i = new Intent(mContext, NewVocabsListViewActivity.class);
                     AppData.currentVocabList = mArrVocabData.get(position - 1);
-                    //i.putExtra("VocabData", mArrVocabData.get(position - 1).getVocabList());
                     i.putExtra("Activity","Edit Item");
                     mContext.startActivity(i);
                 }

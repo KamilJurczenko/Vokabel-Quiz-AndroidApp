@@ -29,13 +29,14 @@ public class NewListDialogFragment extends DialogFragment {
                     public void onClick(DialogInterface dialog, int id) {
                         VocabList list = AppData.currentVocabList;
                         list.getVocabList().removeIf(Tuple -> Tuple.getMainVocab().equals(""));
-                        AppData.loadedLanguageVocabs.add(list);
+                        if(!AppData.loadedLanguageVocabs.contains(list))
+                            AppData.loadedLanguageVocabs.add(list);
                         SharedPrefVocabList sharedPrefVocabList = new SharedPrefVocabList(getActivity(),AppData.lanListPrefTag);
                         sharedPrefVocabList.saveVocabList(AppData.loadedLanguageVocabs);
                         Intent i = new Intent(getActivity(), MainActivity.class);
                         i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                         startActivity(i);
-                        Toast.makeText(getActivity(), "New Vocabulary List added.", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getActivity(), AppData.currentVocabList.getName() + " added.", Toast.LENGTH_SHORT).show();
                     }
                 })
                 .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {

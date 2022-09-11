@@ -53,6 +53,7 @@ public class NewVocabsListViewActivity extends AppCompatActivity {
         String activity = getIntent().getStringExtra("Activity");
 
         if(activity != null && activity.equals("Edit Item")){
+            submitButton.setVisibility(View.GONE);
             ImageButton vocabListSettings = findViewById(R.id.vocabListSettingsBtn);
             ImageButton returnBtn = findViewById(R.id.returnBtn);
             RelativeLayout settingsLayout = findViewById(R.id.settingsLayout);

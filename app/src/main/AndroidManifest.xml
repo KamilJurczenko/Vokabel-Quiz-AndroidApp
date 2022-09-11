@@ -38,10 +38,6 @@
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".Activities.ocrResultActivity"
-            android:exported="false"
-            android:screenOrientation="portrait" />
-        <activity
             android:name=".Activities.TakePicture.CameraActivity"
             android:exported="false"
             android:screenOrientation="portrait" />

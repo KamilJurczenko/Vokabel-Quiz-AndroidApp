@@ -144,18 +144,6 @@ public class CameraActivity extends AppCompatActivity {
 
         File file = new File(CameraActivity.this.getExternalCacheDir() + File.separator + System.currentTimeMillis() + ".jpeg");
 
-        /*long timestamp = System.currentTimeMillis();
-        ContentValues contentValues = new ContentValues();
-        contentValues.put(MediaStore.MediaColumns.DISPLAY_NAME, timestamp);
-        contentValues.put(MediaStore.Images.Media.DATE_TAKEN, timestamp);
-        contentValues.put(MediaStore.MediaColumns.MIME_TYPE, "image/jpg");
-
-        ImageCapture.OutputFileOptions outputFileOptions =
-                new ImageCapture.OutputFileOptions.Builder(CameraActivity.this.getContentResolver(),
-                        MediaStore.Images.Media.EXTERNAL_CONTENT_URI,
-                        contentValues)
-                        .build();
-        */
         ImageCapture.OutputFileOptions outputFileOptions =
                 new ImageCapture.OutputFileOptions.Builder(file).build();
 

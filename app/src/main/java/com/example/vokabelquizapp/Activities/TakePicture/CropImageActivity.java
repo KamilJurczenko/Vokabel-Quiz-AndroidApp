@@ -166,10 +166,6 @@ public class CropImageActivity extends AppCompatActivity {
                             Intent i = new Intent(CropImageActivity.this, NewVocabsListViewActivity.class);
                             startActivity(i);
                         }
-                        // Show results when last Image taken
-                        /*Intent i = new Intent(CropImageActivity.this, ocrResultActivity.class);
-                        i.putExtra("OCR_Result", resultText);
-                        startActivity(i);*/
                     }
                 })
                 .addOnFailureListener(

@@ -68,14 +68,11 @@
             android:layout_height="60dp"
             android:text="@string/add_new_scan" />
 
-        <Space
-            android:layout_width="20dp"
-            android:layout_height="match_parent" />
-
         <Button
             android:id="@+id/submitVocabBtn"
             android:layout_width="150dp"
             android:layout_height="60dp"
+            android:layout_marginStart="20dp"
             android:text="@string/submit" />
 
     </LinearLayout>
